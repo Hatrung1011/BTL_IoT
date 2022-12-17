@@ -9,8 +9,8 @@ from pycaret.regression import (compare_models, load_model, pull, save_model,
                                 setup)
 from streamlit_pandas_profiling import st_profile_report
 
-if os.path.exists('./dataset.csv'): 
-    df = pd.read_csv('dataset.csv', index_col=None)
+# if os.path.exists('./dataset.csv'): 
+#     df = pd.read_csv('dataset.csv', index_col=None)
 
 with st.sidebar: 
     st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
