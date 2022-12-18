@@ -6,6 +6,7 @@ from flask import Flask, request, render_template
 
 # Load ML model
 model = pickle.load(open('model.pkl', 'rb')) 
+model_knn = pickle.load(open('model-knn.pkl', 'rb'))
 
 # Create application
 app = Flask(__name__)
@@ -20,13 +21,13 @@ def home():
 def predict():
     
     # Put all form entries values in a list 
-    # features = [float(i) for i in request.form.values()]
-    # # Convert features to array
-    # array_features = [np.array(features)]
-    # # Predict features
-    # prediction = model.predict(array_features)
+    features = [float(i) for i in request.form.values()]
+    # Convert features to array
+    array_features = [np.array(features)]
+    # Predict features
+    prediction = model_knn.predict(array_features)
     
-    output = model
+    output = prediction
     print(output)
     
     # Check the output values and retrive the result with html tag based on the value
